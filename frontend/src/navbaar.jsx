@@ -5,7 +5,7 @@ import { FaWhatsappSquare } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "./context/auth";
-import Logo from "./assets/Logo.jpeg"
+import Logo from "./assets/Logo.png"
 const DropdownLinks = [
   {
     id: 1,
@@ -64,13 +64,13 @@ const Navbaar = ({ onLoginClick }) => {
     window.open(url, "_blank");
   };
  return (
-    <div>
+    <div >
       {/* Navbar */}
-      <nav className="w-full bg-white  h-24 shadow-md fixed top-0 left-0 z-50">
-        <div className="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
+      <nav className="w-full bg-white  h-36 shadow-md fixed top-0 left-0 z-50">
+        <div className="max-w-screen-xl mx-auto my-0 px-0 py-3 flex  justify-between items-center">
           {/* Logo */}
           <div className="text-2xl font-bold">
-            <img src={Logo} alt="logo" style={{height:"50px",width:"auto"}} />
+            <img src={Logo} alt="logo" style={{height:"150px",width:"auto"}} />
           </div>
 
           {/* Hamburger Icon for small screens */}

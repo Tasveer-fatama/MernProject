@@ -17,100 +17,71 @@ const Gallary = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white dark:bg-gray-800 h-screen h-full py-6 sm:py-8 lg:py-12">
-  <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-      <div className="flex items-center gap-12">
-        <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl dark:text-white">
-          Gallery
-        </h2>
-        <p className="hidden max-w-screen-sm text-gray-500 dark:text-gray-300 md:block">
-          This is a section of some simple filler text, also known as
-          placeholder text. It shares some characteristics of a real written
-          text.
-        </p>
+       
+    <div className="h-screen w-full flex items-center justify-center overflow-hidden bg-purple-300">
+      <div className="relative lg:w-[290px] lg:h-[290px] md:w-[220px] md:h-[220px] sm:w-[180px] sm:h-[180px] w-[100px] h-[100px] [transform-style:preserve-3d] animate-[rotate_30s_linear_infinite]">
+        <span style={{ "--i": 1 }} className="span-style">
+          <img
+            src="https://images.unsplash.com/photo-1546015720-b8b30df5aa27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxiYWJ5fGVufDB8MHx8fDE3MTI5ODgzMTl8MA&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="img - 1"
+            className="img-style"
+          />
+        </span>
+        <span style={{ "--i": 2 }} className="span-style">
+          <img
+            src="https://images.unsplash.com/photo-1566004100631-35d015d6a491?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw0fHxiYWJ5fGVufDB8MHx8fDE3MTI5ODgzMTl8MA&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="img - 2"
+            className="img-style"
+          />
+        </span>
+        <span style={{ "--i": 3 }} className="span-style">
+          <img
+            src="https://images.unsplash.com/photo-1519689680058-324335c77eba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxMnx8YmFieXxlbnwwfDB8fHwxNzEyOTg4MzE5fDA&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="img - 3"
+            className="img-style"
+          />
+        </span>
+        <span style={{ "--i": 4 }} className="span-style">
+          <img
+            src="https://images.unsplash.com/photo-1588410670460-cdab54625253?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxiYWJ5fGVufDB8MHx8fDE3MTI5ODgzMTl8MA&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="img - 4"
+            className="img-style"
+          />
+        </span>
+        <span style={{ "--i": 5 }} className="span-style">
+          <img
+            src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxiYWJ5fGVufDB8MHx8fDE3MTI5ODgzMTl8MA&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="img - 5"
+            className="img-style"
+          />
+        </span>
+        <span style={{ "--i": 6 }} className="span-style">
+          <img
+            src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxiYWJ5fGVufDB8MHx8fDE3MTI5ODgzMTl8MA&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="img - 6"
+            className="img-style"
+          />
+        </span>
+        <span style={{ "--i": 7 }} className="span-style">
+          <img
+            src="https://images.unsplash.com/photo-1505679208891-9ab12ee61dc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxNHx8YmFieXxlbnwwfDB8fHwxNzEyOTg4MzE5fDA&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="img - 7"
+            className="img-style"
+          />
+        </span>
+        <span style={{ "--i": 8 }} className="span-style">
+          <img
+            src="https://images.unsplash.com/photo-1583086762675-5a88bcc72548?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw3fHxiYWJ5fGVufDB8MHx8fDE3MTI5ODgzMTl8MA&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="img - 8"
+            className="img-style"
+          />
+        </span>
       </div>
-      <a
-        href="#"
-        className="inline-block rounded-lg border bg-white dark:bg-gray-700 dark:border-none px-4 py-2 text-center text-sm font-semibold text-gray-500 dark:text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base"
-      >
-        More
-      </a>
     </div>
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {/* image - start */}
-      <a
-        href="#"
-        className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
-          loading="lazy"
-          alt="Photo by Minh Pham"
-          className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
-        <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
-          VR
-        </span>
-      </a>
-      {/* image - end */}
-      {/* image - start */}
-      <a
-        href="#"
-        className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000"
-          loading="lazy"
-          alt="Photo by Magicle"
-          className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
-        <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
-          Tech
-        </span>
-      </a>
-      {/* image - end */}
-      {/* image - start */}
-      <a
-        href="#"
-        className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000"
-          loading="lazy"
-          alt="Photo by Martin Sanchez"
-          className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
-        <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
-          Dev
-        </span>
-      </a>
-      {/* image - end */}
-      {/* image - start */}
-      <a
-        href="#"
-        className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&q=75&fit=crop&w=600"
-          loading="lazy"
-          alt="Photo by Lorenzo Herrera"
-          className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
-        <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
-          Retro
-        </span>
-      </a>
-      {/* image - end */}
-    </div>
-  </div>
-</div>
-
-      </div>
+ 
+ 
+    
+ </div>
     </div>
   );
 };
