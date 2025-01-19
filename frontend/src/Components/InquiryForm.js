@@ -1,85 +1,122 @@
-import React, { useState } from 'react';
+import React from "react";
+import { useFormik } from "formik";
+import { useSnackbar } from "notistack";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+
+const projectSchema = Yup.object().shape({
+  name: Yup.string().required("Name is required"),
+  number: Yup.string().required("Number is required"),
+  message: Yup.string().required("Message is required"),
+});
 
 function InquiryForm({ closeForm }) {
-  // State to manage form data
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [number, setNumber] = useState('');
-  const [message, setMessage] = useState('');
+  const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const AddInquiryForm = useFormik({
+    initialValues: {
+      name: "",
+      number: "",
+      message: "",
+    },
+    validationSchema: projectSchema,
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        const res = await fetch("http://localhost:5000/inquiry/add", {
+          method: "POST",
+          body: JSON.stringify(values),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
-    // Form data to send to backend
-    const formData = {
-      name,
-    number,
-      message,
-    };
-
-    try {
-      const response = await fetch('http://localhost:5000/send-whatsapp', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-      if (data.success) {
-        // Message sent successfully
-        alert('Your message has been sent via WhatsApp!');
-        closeForm(); // Close form on success
-      } else {
-        alert('Failed to send the message. Try again.');
+        if (res.ok) {
+          enqueueSnackbar("Inquiry submitted successfully", { variant: "success" });
+          resetForm();
+        } else {
+          const errorData = await res.json();
+          enqueueSnackbar(errorData.message || "Something went wrong", { variant: "error" });
+        }
+      } catch (error) {
+        enqueueSnackbar("Network error. Please try again later.", { variant: "error" });
       }
-    } catch (error) {
-      console.error('Error sending message:', error);
-      alert('There was an error sending the message.');
-    }
-  };
+    },
+  });
 
   return (
     <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
       <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
         <h2 className="text-2xl font-semibold text-center mb-4">Inquiry Form</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={AddInquiryForm.handleSubmit}>
+          {/* Name Field */}
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700" htmlFor="name">Name</label>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              Name
+            </label>
             <input
               type="text"
               id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+              name="name"
+              value={AddInquiryForm.values.name}
+              onChange={AddInquiryForm.handleChange}
+              onBlur={AddInquiryForm.handleBlur}
+              className={`w-full p-2 mt-1 border ${
+                AddInquiryForm.touched.name && AddInquiryForm.errors.name
+                  ? "border-red-500"
+                  : "border-gray-300"
+              } rounded-md`}
             />
+            {AddInquiryForm.touched.name && AddInquiryForm.errors.name && (
+              <span className="text-red-500 text-sm">{AddInquiryForm.errors.name}</span>
+            )}
           </div>
-         
+
+          {/* Number Field */}
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700" htmlFor="number">Number</label>
+            <label htmlFor="number" className="block text-sm font-medium text-gray-700">
+              Number
+            </label>
             <input
               type="tel"
               id="number"
-              value={number}
-              onChange={(e) => setNumber(e.target.value)}
-              required
-              className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-              placeholder="Enter your phone number"
+              name="number"
+              value={AddInquiryForm.values.number}
+              onChange={AddInquiryForm.handleChange}
+              onBlur={AddInquiryForm.handleBlur}
+              className={`w-full p-2 mt-1 border ${
+                AddInquiryForm.touched.number && AddInquiryForm.errors.number
+                  ? "border-red-500"
+                  : "border-gray-300"
+              } rounded-md`}
             />
+            {AddInquiryForm.touched.number && AddInquiryForm.errors.number && (
+              <span className="text-red-500 text-sm">{AddInquiryForm.errors.number}</span>
+            )}
           </div>
+
+          {/* Message Field */}
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700" htmlFor="message">Message</label>
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+              Message
+            </label>
             <textarea
               id="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required
-              className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+              name="message"
+              value={AddInquiryForm.values.message}
+              onChange={AddInquiryForm.handleChange}
+              onBlur={AddInquiryForm.handleBlur}
+              className={`w-full p-2 mt-1 border ${
+                AddInquiryForm.touched.message && AddInquiryForm.errors.message
+                  ? "border-red-500"
+                  : "border-gray-300"
+              } rounded-md`}
             />
+            {AddInquiryForm.touched.message && AddInquiryForm.errors.message && (
+              <span className="text-red-500 text-sm">{AddInquiryForm.errors.message}</span>
+            )}
           </div>
-         
+
           <button
             type="submit"
             className="w-full py-2 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none"

@@ -1,106 +1,161 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+import React, { useState } from "react";
 
-function Projectimg() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration in milliseconds
-      easing: "ease-in-out",
-      once: true, // Whether animation should happen only once
-    });
-  }, []);
+const ProjectsImg = () => {
+  const slides = [
+    {
+      id: 1,
+      title: "Digital Prism",
+      description:
+        "Where geometry meets art in a stunning display of light and form.",
+      image:
+        "https://www.crisp-design.co.uk/wp-content/uploads/2019/09/gunton-pools.jpg",
+    },
+    {
+      id: 2,
+      title: "Tech Haven",
+      description:
+        "Immerse yourself in the cutting edge of technology and innovation.",
+      image: "https://www.centuryply.com/blogimage/16-04-24/32-1.jpg",
+    },
+    {
+      id: 3,
+      title: "Neural Dreams",
+      description:
+        "AI-generated masterpieces that blur the line between human and machine creativity.",
+      image:
+        "https://housing.com/news/wp-content/uploads/2022/11/showcase-design-for-hall-compressed.jpg",
+    },
+  ];
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3, // Default value for large screens
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024, // Medium screens (Tablets)
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768, // Small screens (Mobile)
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 480, // Extra small screens
-        settings: {
-          slidesToShow: 1,
-          dots: false, // Optional: Hide dots on smaller screens
-        },
-      },
-    ],
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const prevSlide = () => {
+    setActiveSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setActiveSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
   return (
-    <div className="w-full px-4 md:w-4/5 lg:w-3/5 m-auto mt-20">
-      <div className="px-6 text-center">
-        <h1
-          className="mb-6 text-3xl md:text-4xl lg:text-5xl font-serif"
-          data-aos="fade-up"
-        >
-          Portfolio of Our
+    <div>
+   
+      <div
+        className="flex flex-wrap w-full mb-7 flex-col items-center text-center font-Montserrat"
+       
+      >
+        <h1 className="sm:text-3xl text-4xl font-serif title-font text-pri uppercase">
+          Completed Project <span className="sm:text-3xl text-6xl"></span>
         </h1>
-        <h3
-          className="mb-8 text-2xl md:text-3xl font-serif"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          Finest Projects
-        </h3>
       </div>
-      <div className="mt-10 md:mt-20">
-        <Slider {...settings}>
-          {data.map((d, index) => (
-            <a
-              key={index}
-              className="flex flex-col group bg-white border shadow-sm rounded-xl overflow-hidden hover:shadow-lg focus:outline-none focus:shadow-lg transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
-              href="#"
-              data-aos="zoom-in"
-              data-aos-delay={`${index * 100}`}
+      <div className="relative w-full max-w-6xl mx-auto">
+        {/* Background Effects */}
+        <div className="fixed inset-0 -z-10 mt-5">
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-purple-900/20 to-fuchsia-900/20" />
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-violet-500/10 rounded-full filter blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-fuchsia-500/10 rounded-full filter blur-3xl" />
+        </div>
+
+        {/* Carousel Container */}
+        <div className="carousel-container relative">
+          {/* Progress Bar */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 rounded-full overflow-hidden z-20">
+            <div
+              className="progress-bar absolute top-0 left-0 h-full bg-gradient-to-r from-violet-500 to-fuchsia-500"
+              style={{ width: `${((activeSlide + 1) / slides.length) * 100}%` }}
+            />
+          </div>
+
+          {/* Navigation Buttons */}
+          <button
+            className="nav-button absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center z-20 text-white"
+            onClick={prevSlide}
+            title="Previous slide"
+          >
+            <svg
+              className="w-5 h-5 sm:w-6 sm:h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <div className="relative pt-[50%] sm:pt-[60%] lg:pt-[80%] rounded-t-xl overflow-hidden">
-                <img
-                  className="w-full h-full absolute top-0 start-0 object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-t-xl"
-                  src={d.img}
-                  alt="Card Image"
-                />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            className="nav-button absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center z-20 text-white"
+            onClick={nextSlide}
+            title="Next slide"
+          >
+            <svg
+              className="w-5 h-5 sm:w-6 sm:h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+
+          {/* Carousel Track */}
+          <div className="carousel-track relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
+            {slides.map((slide, index) => (
+              <div
+                key={slide.id}
+                className={`carousel-item absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
+                  index === activeSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
+              >
+                <div className="w-full h-full p-4 sm:p-8">
+                  <div className="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-violet-500/40 to-purple-500/40 mix-blend-overlay" />
+                    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                      <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">
+                        {slide.title}
+                      </h3>
+                      <p className="text-gray-200 text-sm sm:text-base md:text-lg max-w-2xl">
+                        {slide.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </a>
-          ))}
-        </Slider>
+            ))}
+          </div>
+
+          {/* Indicators */}
+          <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1 sm:gap-2 z-20">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                className={`w-8 sm:w-12 h-1 sm:h-1.5 rounded-full transition-colors ${
+                  index === activeSlide
+                    ? "bg-white/60"
+                    : "bg-white/20 hover:bg-white/40"
+                }`}
+                onClick={() => setActiveSlide(index)}
+                title={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
 
-const data = [
-  {
-    img: "https://t4.ftcdn.net/jpg/02/81/89/73/360_F_281897358_3rj9ZBSZHo5s0L1ug7uuIHadSxh9Cc75.jpg",
-  },
-  {
-    img: "https://st2.depositphotos.com/3378121/5593/i/450/depositphotos_55933727-stock-photo-modern-buildings-in-the-financial.jpg",
-  },
-  {
-    img: "https://cdn.pixabay.com/photo/2015/11/17/18/59/architecture-1048092_640.jpg",
-  },
-  {
-    img: "https://media.istockphoto.com/id/1351571961/photo/looking-directly-up-at-the-skyline-of-the-financial-district-in-central-london.jpg?s=612x612&w=0&k=20&c=4J_aWJc5gMATCtIbMkF0dMq4dzz_XjLx5DpwnuPJwkg=",
-  },
-  {
-    img: "https://cdn.hswstatic.com/gif/tallest-building-1.jpg",
-  },
-];
-
-export default Projectimg;
+export default ProjectsImg;

@@ -5,7 +5,11 @@ const Footer = () => {
     return (
         <>
             {/* Footer container */}
-            <footer className="bg-black text-center text-white  lg:text-left">
+            <footer className="text-center text-black  lg:text-left" style={{
+            backgroundImage: "url('https://images.squarespace-cdn.com/content/v1/6479484083027f25a6246fcb/6cf5527c-8eeb-4006-a790-df7efdd3157b/GGG+Website+graphic+upside.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}>
                 <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6  lg:justify-between">
                     <div className="me-12 hidden lg:block font-Montserrat">
                         <span>Get connected with us on social networks:</span>
@@ -201,7 +205,7 @@ const Footer = () => {
                     </div>
                 </div>
                 {/*Copyright section*/}
-                <div className="bg-black p-6 text-center max-w-screen-lg mx-auto border-t-2 border-white font-Montserrat ">
+                <div className="bg-black text-white p-6 text-center max-w-screen-lg mx-auto border-t-2 border-white font-Montserrat ">
                     <span>© 2024  All Copyright Reserved</span> &nbsp;
                     <a className="" href="/">
                         By BUILDING SOLUTION PVT LTD.

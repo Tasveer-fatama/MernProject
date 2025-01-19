@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import userRoutes from './route/userRoute.js'
 import completedprojectRoute from './route/completedprojectRoute.js'
 import utilroute from './route/utils.js'
+import inquiryroute from './route/Inquiryroute.js'
 
 
 dotenv.config({ path: './.env' }); 
@@ -25,6 +26,7 @@ app.use(morgan("dev"))
 app.use('/api/v1/auth', userRoutes)
 app.use('/completedProjects', completedprojectRoute)
 app.use('/util', utilroute)
+app.use('/inquiry', inquiryroute)
 app.use(express.static('./static/uploads'));
 
 //rest api
@@ -33,12 +35,10 @@ app.get("/", (req, res) => {
   });
 
 
-
-  
 const port= process.env.PORT ||5000
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
     })
 
 
-///send Inquiry details on whatsaap
+

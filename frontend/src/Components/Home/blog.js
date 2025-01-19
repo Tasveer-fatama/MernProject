@@ -1,144 +1,195 @@
-import React from "react";
+'use client';
+import React, { useState } from 'react'
+import { Text, Container, Group, rem, Paper, Anchor, SimpleGrid, Title, TextInput, Button, Textarea, Divider, Grid, Input } from "@mantine/core"
+import {
+  IconBrandTwitter,
+  IconBrandYoutube,
+  IconBrandInstagram,
+  IconBrandYoutubeFilled,
+  IconBrandXFilled
+} from "@tabler/icons-react"
+import classes from "./FooterLinks.module.css"
+import { FaLinkedinIn } from "react-icons/fa";
+import { GrFacebookOption } from "react-icons/gr";
+import { RiInstagramFill } from "react-icons/ri";
+import { BiLogoTiktok } from "react-icons/bi";
+import clsx from 'clsx';
+import { Manrope, Sora } from 'next/font/google';
+
+const font = Sora({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
+const fonts = Manrope({ subsets: ['latin'], weight: ['200', '300', '400', '500'] });
+
+const data = [
+  {
+    title: "Advertisers",
+    links: [
+      { label: "Launch Campaign", link: "#" },
+      { label: "Self-Serve Platform", link: "#" },
+      { label: "Advertiser Help", link: "#" },
+      { label: "Advertiser FAQs", link: "#" }
+    ]
+  },
+  {
+    title: "Publishers",
+    links: [
+      { label: "Monetize Website", link: "#" },
+      { label: "Referral Program", link: "#" },
+      { label: "Publisher Help", link: "#" },
+      { label: "Publisher FAQs", link: "#" }
+    ]
+  },
+  {
+    title: "Terms & Policies",
+    links: [
+      { label: "Advertiser Terms", link: "#" },
+      { label: "Publisher Terms", link: "#" },
+      { label: "Privacy Policy", link: "#" },
+      { label: "Refund Policy", link: "#" }
+    ]
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About Us", link: "#" },
+      { label: "Blog", link: "#" },
+      { label: "Testimonials", link: "#" },
+      { label: "Contact Us", link: "#" }
+    ]
+  }
+]
+
+const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
+
+export function Footer() {
+  const groups = data.map(group => {
+    const links = group.links.map((link, index) => (
+      <Text
+        key={index}
+        className={classes.link}
+        component="a"
+        href={link.link}
+        onClick={event => event.preventDefault()}
+      >
+        {link.label}
+      </Text>
+    ))
+
+    return (
+      <div className={classes.wrapper} key={group.title}>
+        <Text className={classes.title}>{group.title}</Text>
+        {links}
+      </div>
+    )
+  })
+
+  const [focused, setFocused] = useState(false)
+  const [value, setValue] = useState("")
+  const floating = value.trim().length !== 0 || focused || undefined;
+  const floating1 = value.trim().length !== 0 || focused || undefined;
+  const floating2 = value.trim().length !== 0 || focused || undefined;
 
 
-const Rapidscat = () => {
+
+
   return (
     <>
-      <section className="bg-slate-100 text-black pb-12 place-items-center mt-20">
-        <div className="container ">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-            <div data-aos="zoom-in">
-              <img
-                src="https://living-future.org/wp-content/uploads/2022/05/LKC2doGo-scaled-e1652132136172-1024x602.jpeg"
-                alt=""
-                className="w-full sm:w-[80%] mx-auto max-h-[350px] object-cover"
-              />
-            </div>
-            <div className="space-y-3 xl:pr-36 p-4 border-r-2 border-b-2 border-r-sky-800 border-b-sky-800 ">
-              <p
-                data-aos="fade-up"
-                data-aos-delay="300"
-                className="text-sky-800 uppercase"
-              >
-                our mission
-              </p>
-              <h1
-                data-aos="fade-up"
-                data-aos-delay="500"
-                className="uppercase text-5xl"
-              >
-                Rapidscat
-              </h1>
-              <p data-aos="fade-up" data-aos-delay="700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-                molestiae reprehenderit expedita corporis, non doloremque.
-                Consequatur consectetur quisquam qui sunt. Lorem ipsum dolor sit
-                amet consectetur adipisicing elit. Eos molestiae reprehenderit
-                expedita corporis, non doloremque. Consequatur consectetur
-                quisquam qui sunt.
-              </p>
-              <button
-                data-aos="fade-up"
-                data-aos-delay="900"
-                className="bg-blue-400 text-white hover:bg-blue-500 px-4 py-1 rounded-md duration-200"
-              >
-                View All
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="bg-primary text-black py-20 place-items-center bg-slate-100">
-        <div className="container place-items-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-            <div className="space-y-3 xl:pr-36 p-4 border-l-2 border-b-2 border-l-sky-800 border-b-sky-800 ">
-              <p
-                data-aos="fade-up"
-                data-aos-delay="300"
-                className="text-sky-800 uppercase"
-              >
-                our mission
-              </p>
-              <h1
-                data-aos="fade-up"
-                data-aos-delay="500"
-                className="uppercase text-5xl"
-              >
-                Rapidscat
-              </h1>
-              <p data-aos="fade-up" data-aos-delay="700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-                molestiae reprehenderit expedita corporis, non doloremque.
-                Consequatur consectetur quisquam qui sunt. Lorem ipsum dolor sit
-                amet consectetur adipisicing elit. Eos molestiae reprehenderit
-                expedita corporis, non doloremque. Consequatur consectetur
-                quisquam qui sunt.
-              </p>
-              <button
-                data-aos="fade-up"
-                data-aos-delay="900"
-                className="bg-blue-400 text-white hover:bg-blue-500 px-4 py-1 rounded-md duration-200"
-              >
-                View All
-              </button>
-            </div>
-            <div data-aos="zoom-in">
-              <img
-                src="https://img.freepik.com/premium-photo/skull-sunflower_733139-575.jpg"
-                alt=""
-                className="w-full sm:w-[80%] mx-auto max-h-[350px] object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-   <section className="bg-primary text-black py-20 place-items-center bg-slate-100">
-   <div className="container ">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-            <div data-aos="zoom-in">
-              <img
-                src="https://living-future.org/wp-content/uploads/2022/05/LKC2doGo-scaled-e1652132136172-1024x602.jpeg"
-                alt=""
-                className="w-full sm:w-[80%] mx-auto max-h-[350px] object-cover"
-              />
-            </div>
-            <div className="space-y-3 xl:pr-36 p-4 border-r-2 border-b-2 border-r-sky-800 border-b-sky-800 ">
-              <p
-                data-aos="fade-up"
-                data-aos-delay="300"
-                className="text-sky-800 uppercase"
-              >
-                our mission
-              </p>
-              <h1
-                data-aos="fade-up"
-                data-aos-delay="500"
-                className="uppercase text-5xl"
-              >
-                Rapidscat
-              </h1>
-              <p data-aos="fade-up" data-aos-delay="700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-                molestiae reprehenderit expedita corporis, non doloremque.
-                Consequatur consectetur quisquam qui sunt. Lorem ipsum dolor sit
-                amet consectetur adipisicing elit. Eos molestiae reprehenderit
-                expedita corporis, non doloremque. Consequatur consectetur
-                quisquam qui sunt.
-              </p>
-              <button
-                data-aos="fade-up"
-                data-aos-delay="900"
-                className="bg-blue-400 text-white hover:bg-blue-500 px-4 py-1 rounded-md duration-200"
-              >
-                View All
-              </button>
-            </div>
-          </div>
-        </div>
-   </section>
+    <div>
+    <div className={classes.wrapper1}>
+        <SimpleGrid cols={{ base: 1, lg: 2 }} spacing={50}>
+          <div >
+            <Text mt={80} mb={20} c={"white"} className={fonts.className}>/get in touch/</Text>
 
+            <Title mb={40} className={clsx(classes.title1, font.className)}>We are always ready to help you and answer your questions</Title>
+            <div className={clsx(classes.description, fonts.className)} >
+              <Title fz={19} fw={600}>Email </Title>
+              <Text mt={5}>contact@adpulsenetwork.com , info@adpulsenetwork.com</Text>
+            </div>
+            <div className={clsx(classes.description, fonts.className)} >
+              <Title fz={19} fw={600}>Location </Title>
+              <Text mt={5}> Zurawia, 00-515 Warszawa, Poland. </Text>
+            </div>
+            <div className={clsx(classes.description, fonts.className)} >
+              <Title fz={19} fw={600}>Social network </Title>
+              <Paper bg="#333333" mt="md" >
+                <Anchor href='https://www.facebook.com/adpulsenetwork' c="#FFFFFF" size="md">
+                  <GrFacebookOption size={25} className={classes.socialIcons} />
+                </Anchor>
+                <Anchor ml="md" href='https://www.instagram.com/adpulsenetwork/' c="#FFFFFF" size="md">
+                  <RiInstagramFill size={25} className={classes.socialIcons} />
+                </Anchor>
+                <Anchor ml="md" href='https://www.linkedin.com/company/ad-pulse-network/' c="#FFFFFF" size="md">
+                  <FaLinkedinIn size={25} className={classes.socialIcons} />
+                </Anchor>
+                <Anchor ml="md" href='https://x.com/Adpulsenetwork' c="#FFFFFF" size="md">
+                  <IconBrandXFilled size={25} className={classes.socialIcons} />
+                </Anchor>
+                <Anchor ml="md" href='https://www.tiktok.com/@adpulsenetwork' c="#FFFFFF" size="md">
+                  <BiLogoTiktok size={25} className={classes.socialIcons} />
+                </Anchor>
+                <Anchor ml="md" href='https://www.youtube.com/@adpulssenetwork' c="#FFFFFF" size="md">
+                  <IconBrandYoutubeFilled size={25} className={classes.socialIcons} />
+                </Anchor>
+              </Paper>
+            </div>
+
+          </div>
+
+          <div className={clsx(classes.form, fonts.className)}>
+            <Title c="black" className={font.className}>Get in Touch</Title>
+            <Text c="black" mt="sm" mb="lg" >
+              Define your goals and identify areas where AI can add value to you business
+            </Text>
+
+
+
+            {/* <TextInput
+              label="Name"
+              placeholder="John Doe"
+              mt="md"
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+            /> */}
+            <Input type='text' mt="lg" placeholder="Full Name" required />
+
+            {/* <TextInput
+              label="Email"
+              placeholder="your@email.com"
+              required
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+            /> */}
+            <Input type='email' mt="lg" placeholder="Email" required />
+            {/* <TextInput
+              label="Subject"
+              placeholder=""
+              mt="md"
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+            /> */}
+            <Input type='text' mt="lg" placeholder="Subject" required />
+            {/* <Textarea
+              required
+              label="Your message"
+              placeholder="I want to order your goods"
+              minRows={6}
+              mt="md"
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+            /> */}
+            <Textarea type='textarea' mt="lg" placeholder="Message" required />
+
+            <Group justify="flex-start" mt="xl">
+              <Button className={classes.button}>
+                <span className={clsx(classes.span, fonts.className)}>Send a message</span>
+              </Button>
+            </Group>
+          </div>
+        </SimpleGrid>
+        <Divider mt={130} my="md" />
+
+      </div>
+      
+
+     
+    </div>
     </>
   );
-};
+}
 
-export default Rapidscat;
+export default Footer

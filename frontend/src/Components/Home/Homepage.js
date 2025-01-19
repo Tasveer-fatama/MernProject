@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import About from './knowme'
-import Blog from './blog'
+// import Blog from './blog'
 import Projectsimg from './projectsimg'
 import WhyChooseUs from './whychooseus'
 
@@ -11,8 +11,8 @@ const Homepage = () => {
      <Header/> 
      <About/>
     <Projectsimg/>
-    <Blog/>
     <WhyChooseUs/>
+    {/* <Blog/> */}
     </div>
   )
 }

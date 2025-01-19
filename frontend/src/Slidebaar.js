@@ -16,7 +16,7 @@ const Slidebaar = () => {
   return (
     <div>
       {/* Navigation Toggle */}
-      <div className="py-4 w-full bg-white h-24 shadow-md fixed top-0 left-0 z-50 ">
+      <div className="py-4 w-full bg-white h-24 shadow-md top-0 left-0 z-50 flex items-center justify-between md:hidden">
         <button
           type="button"
           className="p-3 text-gray-800 rounded-lg hover:bg-gray-200"
@@ -58,9 +58,9 @@ const Slidebaar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white border-r transition-transform transform ${
+        className={`fixed top-0 left-0 h-screen w-64 bg-white border-r transition-transform transform overflow-y-auto ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } z-50 dark:bg-neutral-800 dark:border-neutral-700`}
+        } z-50 dark:bg-neutral-800 dark:border-neutral-700 md:translate-x-0 md:block`}
       >
         {/* Header */}
         <header className="p-4 flex justify-between items-center">
@@ -68,7 +68,7 @@ const Slidebaar = () => {
             Admin Panel
           </span>
           <button
-            className="p-2 text-black dark:text-white hover:bg-gray-200 rounded-lg"
+            className="p-2 text-black dark:text-white hover:bg-gray-200 rounded-lg md:hidden"
             onClick={toggleSidebar}
           >
             <svg
@@ -93,7 +93,7 @@ const Slidebaar = () => {
           <ul className="space-y-2">
             <li>
               <Link
-                href="#"
+                to="#"
                 className="block p-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-white"
               >
                 Dashboard
@@ -107,7 +107,7 @@ const Slidebaar = () => {
                 className="flex items-center justify-between w-full p-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-white"
                 onClick={() => toggleMenu("users")}
               >
-                ADDCompletedProject
+                ADD Completed Project
                 <span>{expandedMenu === "users" ? "▲" : "▼"}</span>
               </Link>
               {expandedMenu === "users" && (
@@ -185,12 +185,10 @@ const Slidebaar = () => {
       {/* Overlay to close sidebar when clicked outside */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
           onClick={toggleSidebar}
         ></div>
       )}
-
-     
     </div>
   );
 };

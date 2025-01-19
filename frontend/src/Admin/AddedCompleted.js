@@ -1,20 +1,12 @@
-import { useFormik } from 'formik';
 import { useSnackbar } from 'notistack';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import * as Yup from 'yup';
-import toast from 'react-hot-toast';
 
 const AddedCompleted = () => {
-  const projectSchema = Yup.object().shape({
-    title: Yup.string().required('Title is required'),
-    description: Yup.string().required('Description is required'),
-    address: Yup.string().required('Address is required'),
-  });
+  
 
   const [projectList, setProjectList] = useState([]);
-  const [currentProject, setCurrentProject] = useState(null);
-  const [imageFile, setImageFile] = useState(null);
+  
 
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
@@ -38,51 +30,7 @@ const AddedCompleted = () => {
     fetchProjectList();
   }, []);
 
-  // Handle update button click
-  const handleUpdateClick = (project) => {
-    setCurrentProject(project);
-    setImageFile(null); // Reset the selected image file
-    updateProjectForm.setValues({
-      title: project.title || '',
-      description: project.description || '',
-      address: project.address || '',
-    });
-  };
-
-  const updateProjectForm = useFormik({
-    initialValues: {
-      title: "",
-      description: "",
-      address: "",
-    },
-    onSubmit: async (values) => {
-      try {
-        const formData = new FormData();
-        formData.append("title", values.title);
-        formData.append("description", values.description);
-        formData.append("address", values.address);
-        if (imageFile) formData.append("myfile", imageFile);
-
-        const res = await fetch(`http://localhost:5000/completedProjects/update/${currentProject._id}`, {
-          method: "PUT",
-          body: formData,
-        });
-            console.log(currentProject);
-            
-        if (res.status === 200) {
-          enqueueSnackbar("Project updated successfully", { variant: "success" });
-          setCurrentProject(null);
-          fetchProjectList();
-        } else {
-          enqueueSnackbar("Failed to update project", { variant: "error" });
-        }
-      } catch (error) {
-        console.error(error);
-        enqueueSnackbar("An error occurred while updating the project", { variant: "error" });
-      }
-    },
-    validationSchema: projectSchema,
-  });
+  
 
   // Delete project
   const deleteProject = async (id) => {
@@ -130,12 +78,7 @@ const AddedCompleted = () => {
                 {item.description}
               </p>
               <div className="flex justify-end gap-2">
-                <button
-                  className="rounded-md bg-blue-600 py-2 px-4 text-sm text-white transition hover:bg-blue-700"
-                  onClick={() => handleUpdateClick(item)}
-                >
-                  Update
-                </button>
+               
                 <button
                   className="rounded-md bg-red-600 py-2 px-4 text-sm text-white transition hover:bg-red-700"
                   onClick={() => deleteProject(item._id)}
@@ -148,92 +91,7 @@ const AddedCompleted = () => {
         ))}
       </div>
 
-      {/* Update Form */}
-      {currentProject && (
-        <div className="bg-gray-300 flex justify-center" style={{ fontFamily: "initial" }}>
-          <div className="w-full max-w-lg my-10">
-            <form
-              className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-              onSubmit={updateProjectForm.handleSubmit}
-            >
-              <h2 className="mt-8 mb-3 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
-                Update Project
-              </h2>
-              <div className="mb-4">
-                <label className="block text-gray-700 text-lg font-bold mb-2" htmlFor="title">
-                  Title
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="title"
-                  type="text"
-                  value={updateProjectForm.values.title}
-                  onChange={updateProjectForm.handleChange}
-                  placeholder="Enter title"
-                />
-                {updateProjectForm.touched.title && (
-                  <span className="text-danger">{updateProjectForm.errors.title}</span>
-                )}
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-gray-700 text-lg font-bold mb-2" htmlFor="description">
-                  Description
-                </label>
-                <textarea
-                  rows={4}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="description"
-                  value={updateProjectForm.values.description}
-                  onChange={updateProjectForm.handleChange}
-                  placeholder="Enter your description"
-                />
-                {updateProjectForm.touched.description && (
-                  <span className="text-danger">{updateProjectForm.errors.description}</span>
-                )}
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-gray-700 text-lg font-bold mb-2" htmlFor="address">
-                  Address
-                </label>
-                <textarea
-                  rows={4}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="address"
-                  value={updateProjectForm.values.address}
-                  onChange={updateProjectForm.handleChange}
-                  placeholder="Enter your address"
-                />
-                {updateProjectForm.touched.address && (
-                  <span className="text-danger">{updateProjectForm.errors.address}</span>
-                )}
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-gray-700 text-lg font-bold mb-2" htmlFor="image">
-                  Update Image
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="image"
-                  type="file"
-                  onChange={(e) => setImageFile(e.target.files[0])}
-                />
-              </div>
-
-              <div className="flex items-center justify-between">
-                <button
-                  type="submit"
-                  className="font-black w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                >
-                  Update Project
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+     
     </div>
   );
 };

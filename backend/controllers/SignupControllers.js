@@ -109,3 +109,5 @@ res.status(200).send({
 export const testController = (req,res) =>{
     res.send("protected route")
     }
+
+    
