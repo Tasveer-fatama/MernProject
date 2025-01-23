@@ -14,7 +14,7 @@ import Residentialroute from './route/Residentialroute.js';
 dotenv.config({ path: './.env' }); 
 const app = express()
 const corsOptions = {
-  origin:'http://localhost:3000',
+  origin:'https://mern-project-phi-henna.vercel.app',
   methods:'GET,POST,PUT,DELETE,PATCH,HEAD',
   credentials : true,
 }
