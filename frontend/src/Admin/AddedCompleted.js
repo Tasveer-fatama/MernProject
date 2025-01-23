@@ -14,7 +14,7 @@ const AddedCompleted = () => {
   // Fetch the list of projects
   const fetchProjectList = async () => {
     try {
-      const res = await fetch("http://localhost:5000/completedProjects/getall");
+      const res = await fetch("https://mernproject-1-836a.onrender.com/completedProjects/getall");
       if (res.ok) {
         const data = await res.json();
         setProjectList(data);
@@ -35,7 +35,7 @@ const AddedCompleted = () => {
   // Delete project
   const deleteProject = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/completedProjects/delete/${id}`, {
+      const res = await fetch(`https://mernproject-1-836a.onrender.com/completedProjects/delete/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -66,7 +66,7 @@ const AddedCompleted = () => {
             <figure>
               <img
                 className="w-full h-48 object-cover rounded-t-xl"
-                src={`http://localhost:5000/${item.image}`}
+                src={`https://mernproject-1-836a.onrender.com/${item.image}`}
                 alt={item.title}
               />
             </figure>

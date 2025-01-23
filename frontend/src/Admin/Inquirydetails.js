@@ -7,7 +7,7 @@ const Inquirydetails = () => {
 
   const fetchInquiryDetails = async () => {
     try {
-      const res = await fetch("http://localhost:5000/inquiry/getall");
+      const res = await fetch("https://mernproject-1-836a.onrender.com/inquiry/getall");
       if (res.ok) {
         const data = await res.json();
         setInquiryDetails(data);
@@ -26,7 +26,7 @@ const Inquirydetails = () => {
   // Delete project
   const deleteProject = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/inquiry/delete/${id}`, {
+      const res = await fetch(`https://mernproject-1-836a.onrender.com/inquiry/delete/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {

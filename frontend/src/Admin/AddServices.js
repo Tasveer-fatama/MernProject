@@ -22,7 +22,7 @@ const AddProject = () => {
         const fd = new FormData();
         fd.append("myfile", file);
         try {
-            const res = await fetch("http://localhost:5000/util/uploads", {
+            const res = await fetch("https://mernproject-1-836a.onrender.com/util/uploads", {
                 method: "POST",
                 body: fd,
             });
@@ -48,7 +48,7 @@ const AddProject = () => {
             values.image = selProject.name
             console.log(values);
             resetForm()
-            const res = await fetch("http://localhost:5000/services/add", {
+            const res = await fetch("https://mernproject-1-836a.onrender.com/services/add", {
                 method: "POST",
                 body: JSON.stringify(values),
                 headers: {

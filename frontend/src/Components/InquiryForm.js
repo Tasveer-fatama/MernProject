@@ -23,7 +23,7 @@ function InquiryForm({ closeForm }) {
     validationSchema: projectSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await fetch("http://localhost:5000/inquiry/add", {
+        const res = await fetch("https://mernproject-1-836a.onrender.com/inquiry/add", {
           method: "POST",
           body: JSON.stringify(values),
           headers: {

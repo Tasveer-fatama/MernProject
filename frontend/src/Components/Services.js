@@ -7,7 +7,7 @@ const Services = () => {
   const [projectList, setProjectList] = useState([]);
   const fetchProjectList = async () => {
     try {
-      const res = await fetch("http://localhost:5000/services/getall");
+      const res = await fetch("https://mernproject-1-836a.onrender.com/services/getall");
       if (res.ok) {
         const data = await res.json();
         setProjectList(data);
@@ -42,7 +42,7 @@ const Services = () => {
       className={`flex flex-col md:flex-row justify-between items-center w-4/5 md:w-2/3 shadow-xl rounded-2xl p-6 border gap-6`}
     >
       <img
-        src={`http://localhost:5000/${item.image}`}
+        src={`https://mernproject-1-836a.onrender.com/${item.image}`}
         alt={item.title}
         className={`w-full md:w-1/3 rounded-2xl object-cover ${index % 2 !== 0 ? "md:order-2" : "md:order-1"}`}
       />

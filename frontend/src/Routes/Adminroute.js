@@ -15,7 +15,7 @@ export default function AdminRoute() {
         }
   
         try {
-          const { data } = await axios.get("http://localhost:5000/api/v1/auth/admin", {
+          const { data } = await axios.get("https://mernproject-1-836a.onrender.com/api/v1/auth/admin", {
             headers: { Authorization: `Bearer ${auth.token}` },
           });
   

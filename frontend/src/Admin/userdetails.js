@@ -7,7 +7,7 @@ const Userdetails = () => {
 
   const fetchUserDetails = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/v1/auth/getall");
+      const res = await fetch("https://mernproject-1-836a.onrender.com/api/v1/auth/getall");
       if (res.ok) {
         const data = await res.json();
         setSignupDetails(data);
@@ -25,7 +25,7 @@ const Userdetails = () => {
 
   const deleteProject = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/v1/auth/delete/${id}`, {
+      const res = await fetch(`https://mernproject-1-836a.onrender.com/api/v1/auth/delete/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {

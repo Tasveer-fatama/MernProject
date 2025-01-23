@@ -50,9 +50,11 @@ const HeroSection = () => {
             {currentText}
           </h1>
           <p className="text-base sm:text-lg mb-8">Are you Looking for trusted construction company ?</p>
-          <button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-6 sm:px-8 py-3 rounded-full text-lg sm:text-xl font-semibold hover:bg-blue-700 transition">
+         <a href='/signup'>
+         <button  className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-6 sm:px-8 py-3 rounded-full text-lg sm:text-xl font-semibold hover:bg-blue-700 transition">
             Get Started
           </button>
+         </a>
         </div>
       </div>
     </section>

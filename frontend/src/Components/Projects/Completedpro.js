@@ -10,7 +10,7 @@ const Completedpro = () => {
 };
   const fetchProjectList = async () => {
       try {
-        const res = await fetch("http://localhost:5000/completedProjects/getall");
+        const res = await fetch("https://mernproject-1-836a.onrender.com/completedProjects/getall");
         if (res.ok) {
           const data = await res.json();
           setProjectList(data);
@@ -27,7 +27,7 @@ const Completedpro = () => {
     }, []);
   const fetchIndustrialList = async () => {
       try {
-        const res = await fetch("http://localhost:5000/industrial/getall");
+        const res = await fetch("https://mernproject-1-836a.onrender.com/industrial/getall");
         if (res.ok) {
           const data = await res.json();
           setIndustrialList(data);
@@ -44,7 +44,7 @@ const Completedpro = () => {
     }, []);
   const fetchResidentialList = async () => {
       try {
-        const res = await fetch("http://localhost:5000/residential/getall");
+        const res = await fetch("https://mernproject-1-836a.onrender.com/residential/getall");
         if (res.ok) {
           const data = await res.json();
           setResidentialList(data);
@@ -90,7 +90,7 @@ const Completedpro = () => {
           {/* Front Side */}
           <div className="absolute w-full h-full bg-slate-300 flex items-center justify-center backface-hidden">
             <img
-              src={`http://localhost:5000/${item.image}`} // Replace with your image URL
+              src={`https://mernproject-1-836a.onrender.com/${item.image}`} // Replace with your image URL
               alt="Front Image"
               className="w-full h-full object-cover"
             />
@@ -134,7 +134,7 @@ const Completedpro = () => {
           {/* Front Side */}
           <div className="absolute w-full h-full bg-slate-300 flex items-center justify-center backface-hidden">
             <img
-              src={`http://localhost:5000/${item.image}`} // Replace with your image URL
+              src={`https://mernproject-1-836a.onrender.com/${item.image}`} // Replace with your image URL
               alt="Front Image"
               className="w-full h-full object-cover"
             />
@@ -180,7 +180,7 @@ const Completedpro = () => {
           {/* Front Side */}
           <div className="absolute w-full h-full bg-slate-300 flex items-center justify-center backface-hidden">
             <img
-              src={`http://localhost:5000/${item.image}`} // Replace with your image URL
+              src={`https://mernproject-1-836a.onrender.com/${item.image}`} // Replace with your image URL
               alt="Front Image"
               className="w-full h-full object-cover"
             />
