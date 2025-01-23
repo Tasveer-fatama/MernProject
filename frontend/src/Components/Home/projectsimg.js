@@ -4,24 +4,17 @@ const ProjectsImg = () => {
   const slides = [
     {
       id: 1,
-      title: "Digital Prism",
-      description:
-        "Where geometry meets art in a stunning display of light and form.",
       image:
         "https://www.crisp-design.co.uk/wp-content/uploads/2019/09/gunton-pools.jpg",
     },
     {
       id: 2,
-      title: "Tech Haven",
-      description:
-        "Immerse yourself in the cutting edge of technology and innovation.",
+
       image: "https://www.centuryply.com/blogimage/16-04-24/32-1.jpg",
     },
     {
       id: 3,
-      title: "Neural Dreams",
-      description:
-        "AI-generated masterpieces that blur the line between human and machine creativity.",
+
       image:
         "https://housing.com/news/wp-content/uploads/2022/11/showcase-design-for-hall-compressed.jpg",
     },
@@ -39,11 +32,7 @@ const ProjectsImg = () => {
 
   return (
     <div>
-   
-      <div
-        className="flex flex-wrap w-full mb-7 flex-col items-center text-center font-Montserrat"
-       
-      >
+      <div className="flex flex-wrap w-full mb-7 mt-14 flex-col items-center text-center font-Montserrat">
         <h1 className="sm:text-3xl text-4xl font-serif title-font text-pri uppercase">
           Completed Project <span className="sm:text-3xl text-6xl"></span>
         </h1>
@@ -119,18 +108,10 @@ const ProjectsImg = () => {
                   <div className="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
                     <img
                       src={slide.image}
-                      alt={slide.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-violet-500/40 to-purple-500/40 mix-blend-overlay" />
-                    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                      <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">
-                        {slide.title}
-                      </h3>
-                      <p className="text-gray-200 text-sm sm:text-base md:text-lg max-w-2xl">
-                        {slide.description}
-                      </p>
-                    </div>
+                    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   </div>
                 </div>
               </div>

@@ -21,7 +21,9 @@ import AdminRoute from "./Routes/Adminroute";
 import AdminDashboard from "../src/Admin/Admindashboard.js";
 import Addcompletedproject from "../src/Admin/AddCompletedproject.js";
 import InquiryForm from "./Components/InquiryForm.js";
-
+import AddServices from "../src/Admin/AddServices.js";
+import Industrial from "../src/Admin/AddIndustrial.js"
+import Residential from "../src/Admin/AddResidential.js"
 // NotFound Component
 const NotFound = () => (
   <div className="flex justify-center items-center h-screen">
@@ -65,6 +67,9 @@ const App = () => {
                   <Route path="" element={<AdminRoute />}>
                     <Route path="admindashboard" element={<AdminDashboard />} />
                     <Route path="completedprojectRoute" element={<Addcompletedproject />} />
+                    <Route path="services" element={<AddServices/>} />
+                    <Route path="industrial" element={<Industrial/>} />
+                    <Route path="residential" element={<Residential/>} />
                     <Route
                       path="*"
                       element={<Navigate to="/admin/admindashboard" />}

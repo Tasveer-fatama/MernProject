@@ -48,7 +48,7 @@ const Inquirydetails = () => {
       </h1>
 
       <div className="overflow-x-auto">
-        <div className="inline-block min-w-full align-middle">
+        <div className="inline-block min-w-full ">
           <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">

@@ -58,7 +58,7 @@ const Slidebaar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-screen w-64 bg-white border-r transition-transform transform overflow-y-auto ${
+        className={`fixed top-0 left-0 h-screen w-96 bg-white border-r transition-transform transform overflow-y-auto ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } z-50 dark:bg-neutral-800 dark:border-neutral-700 md:translate-x-0 md:block`}
       >
@@ -94,30 +94,84 @@ const Slidebaar = () => {
             <li>
               <Link
                 to="#"
-                className="block p-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-white"
+                className="block p-2 text-gray-700 rounded-lg hover:bg-yellow-600 dark:text-white"
               >
-                Dashboard
+              Welcome to the dashboard
               </Link>
             </li>
 
             {/* Users Accordion */}
             <li>
               <Link
-                to="/admin/completedprojectRoute"
-                className="flex items-center justify-between w-full p-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-white"
+                to=""
+                className="flex items-center justify-between w-full p-2 text-gray-700 rounded-lg hover:bg-yellow-600 dark:text-white"
                 onClick={() => toggleMenu("users")}
               >
-                ADD Completed Project
+                ADD Completed Projects
                 <span>{expandedMenu === "users" ? "▲" : "▼"}</span>
               </Link>
               {expandedMenu === "users" && (
                 <ul className="pl-4 space-y-1">
                   <li>
                     <a
-                      href=""
+                      href="/admin/completedprojectRoute"
                       className="block p-2 text-gray-600 rounded-lg hover:bg-black dark:text-neutral-300"
                     >
-                      Sub Menu 1
+                      ADD Commercial Project
+</a>
+                  </li>
+                  <li>
+                    <a
+                      href="/admin/industrial"
+                      className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
+                    >
+                       ADD Industrial Project
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/admin/residential"
+                      className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
+                    >
+                       ADD Residential Project
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/admin/services"
+                      className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
+                    >
+                     ADD Services
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </li>
+            <li>
+              <Link
+                to=""
+                className="flex items-center justify-between w-full p-2 text-gray-700 rounded-lg hover:bg-yellow-600 dark:text-white"
+                onClick={() => toggleMenu("users")}
+              >
+                ADD OnGoing Projects
+                <span>{expandedMenu === "users" ? "▲" : "▼"}</span>
+              </Link>
+              {expandedMenu === "users" && (
+                <ul className="pl-4 space-y-1">
+                  <li>
+                    <a
+                      href="/admin/completedprojectRoute"
+                      className="block p-2 text-gray-600 rounded-lg hover:bg-black dark:text-neutral-300"
+                    >
+                      ADD Commercial Project
+</a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
+                    >
+                       ADD Industrial Project
                     </a>
                   </li>
                   <li>
@@ -125,59 +179,52 @@ const Slidebaar = () => {
                       href="#"
                       className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
                     >
-                      Sub Menu 2
+                       ADD Residential Project
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </li>
+            <li>
+              <Link
+                to=""
+                className="flex items-center justify-between w-full p-2 text-gray-700 rounded-lg hover:bg-yellow-600 dark:text-white"
+                onClick={() => toggleMenu("users")}
+              >
+                ADD Completed Projects
+                <span>{expandedMenu === "users" ? "▲" : "▼"}</span>
+              </Link>
+              {expandedMenu === "users" && (
+                <ul className="pl-4 space-y-1">
+                  <li>
+                    <a
+                      href="/admin/completedprojectRoute"
+                      className="block p-2 text-gray-600 rounded-lg hover:bg-black dark:text-neutral-300"
+                    >
+                      ADD Commercial Project
+</a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
+                    >
+                       ADD Industrial Project
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
+                    >
+                       ADD Residential Project
                     </a>
                   </li>
                 </ul>
               )}
             </li>
 
-            {/* Projects Accordion */}
-            <li>
-              <button
-                className="flex items-center justify-between w-full p-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-white"
-                onClick={() => toggleMenu("projects")}
-              >
-                Completed Projects
-                <span>{expandedMenu === "projects" ? "▲" : "▼"}</span>
-              </button>
-              {expandedMenu === "projects" && (
-                <ul className="pl-4 space-y-1">
-                  <li>
-                    <NavLink
-                      to=""
-                      className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
-                    >
-                      Project 1
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="//admin/create-category"
-                      className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
-                    >
-                      Project 2
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="//admin/create-category"
-                      className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
-                    >
-                      Project 3
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="//admin/create-category"
-                      className="block p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-neutral-300"
-                    >
-                      Project 4
-                    </NavLink>
-                  </li>
-                </ul>
-              )}
-            </li>
+           
           </ul>
         </nav>
       </div>

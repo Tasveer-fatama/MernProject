@@ -213,61 +213,60 @@ const KnowMe = () => {
       <div className="relative">
         {/* First Slide */}
         <div
-          className="sticky  top-0 h-screen flex flex-col items-center justify-center text-white"
-          style={{
-            backgroundImage:
-              "url('https://images.squarespace-cdn.com/content/v1/6479484083027f25a6246fcb/6cf5527c-8eeb-4006-a790-df7efdd3157b/GGG+Website+graphic+upside.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+  className="sticky top-0 h-screen flex flex-col items-center justify-center text-white"
+  style={{
+    backgroundImage:
+      "url('https://images.squarespace-cdn.com/content/v1/6479484083027f25a6246fcb/6cf5527c-8eeb-4006-a790-df7efdd3157b/GGG+Website+graphic+upside.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  <section className="py-24 relative xl:mr-0 lg:mr-5 mr-0">
+    <div className="w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-8 mx-auto">
+      <div className="w-full justify-start items-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:gap-12">
+        {/* Left Content */}
+        <div
+          className="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex"
+          data-aos="fade-right"
         >
-          <section className="py-24 relative xl:mr-0 lg:mr-5 mr-0">
-            <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
-              <div className="w-full justify-start items-center gap-10 grid grid-cols-1 lg:grid-cols-2 xl:gap-12">
-                {/* Left Content */}
-                <div
-                  className="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex"
-                  data-aos="fade-right"
-                >
-                  <div className="w-full flex-col justify-center items-start gap-8 flex">
-                    <div
-                      className="flex-col justify-start lg:items-start items-center gap-4 flex"
-                      data-aos="fade-up"
-                    >
-                      <div className="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
-                        <h2 className="text-black text-3xl sm:text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
-                          BUILDING SOLUTIONS PRIVATE
-                        </h2>
-                        <p className="text-black text-sm sm:text-base font-normal leading-relaxed lg:text-start text-center">
-                          Building Solutions Private Limited was founded with a
-                          vision to revolutionize the construction industry by
-                          delivering high- Quality,sustainable and innovative
-                          infrastructure solutions. Over the years,we have grown
-                          into a trusted name,completing numerous successful
-                          projects across residential,commercial,and industrial
-                          Sectors
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* Right Content */}
-                <div
-                  className="w-full lg:justify-start justify-center items-start flex"
-                  data-aos="fade-up"
-                >
-                  <div className="sm:w-[564px] w-full sm:h-[646px] h-56 sm:bg-gray-100 rounded-3xl sm:border border-gray-200 relative">
-                    <img
-                      className="sm:mt-5 sm:ml-5 w-full h-full rounded-3xl object-cover"
-                      src="/discussion.jpg"
-                      alt="About Us image"
-                    />
-                  </div>
-                </div>
+          <div className="w-full flex-col justify-center items-start gap-8 flex">
+            <div
+              className="flex-col justify-start lg:items-start items-center gap-4 flex"
+              data-aos="fade-up"
+            >
+              <div className="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
+                <h2 className="text-black text-3xl sm:text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
+                  BUILDING SOLUTIONS PRIVATE LIMITED
+                </h2>
+                <p className="text-black text-sm sm:text-base font-normal leading-relaxed lg:text-start text-center">
+                  Building Solutions Private Limited was founded with a vision
+                  to revolutionize the construction industry by delivering high-
+                  Quality,sustainable and innovative infrastructure solutions.
+                  Over the years,we have grown into a trusted name,completing
+                  numerous successful projects across residential,commercial,and
+                  industrial Sectors
+                </p>
               </div>
             </div>
-          </section>
+          </div>
         </div>
+        {/* Right Content */}
+        <div
+          className="w-full lg:justify-start justify-center items-start flex"
+          data-aos="fade-up"
+        >
+          <div className="sm:w-[564px] w-full sm:h-[646px] h-56 sm:bg-gray-100 rounded-3xl sm:border border-gray-200 relative">
+            <img
+              className="sm:mt-5 sm:ml-5 w-full h-full rounded-3xl object-cover"
+              src="/discussion.jpg"
+              alt="About Us image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
         {/* Third Slide */}
         <div
@@ -310,7 +309,7 @@ const KnowMe = () => {
                       />
                       <span className="flex-grow flex flex-col pl-4">
                         <span className="title-font font-medium text-gray-900">
-                          Shivani trivedi
+                          Satakshi Trivedi
                         </span>
                       </span>
                     </a>
@@ -343,7 +342,7 @@ const KnowMe = () => {
                       />
                       <span className="flex-grow flex flex-col pl-4">
                         <span className="title-font font-medium text-gray-900">
-                          Tasveer fatama
+                          Tasveer Fatama
                         </span>
                       </span>
                     </a>
@@ -379,34 +378,27 @@ const KnowMe = () => {
 
               {/* Cards Container */}
             {/* Cards Container */}
-<div className="flex flex-wrap -m-4 font-Lato">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 font-Lato px-4">
   {cardsData.map(({ id, icon, title, description }) => (
     <div
       key={id}
-      className="relative flex flex-col justify-center overflow-hidden  py-6 sm:py-12 w-full sm:w-1/2 lg:w-1/3 xl:w-1/3 px-4 mb-4"
+      className="relative flex flex-col justify-center overflow-hidden py-6 sm:py-10 px-4"
     >
-      <div className="group relative cursor-pointer overflow-hidden px-6 pt-10 pb-8 shadow-xl ring-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
-        <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-slate-300 transition-all duration-300 group-hover:scale-[10]" />
+      <div className="group relative cursor-pointer overflow-hidden px-6 pt-10 pb-8 shadow-xl ring-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:rounded-lg sm:px-8 bg-transparent">
+        <span className="absolute top-10 left-10 z-0 h-20 w-20 rounded-full bg-slate-300 transition-transform duration-300 group-hover:scale-[10]" />
 
-        <div className="relative z-10 mx-auto max-w-md">
-          <span className="grid h-20 w-20 place-items-center rounded-full bg-black transition-all duration-300 group-hover:bg-black">
-          {icon}
+        <div className="relative z-10 mx-auto max-w-md text-center">
+          <span className="grid h-20 w-20 place-items-center rounded-full bg-black text-white transition-all duration-300 group-hover:bg-gray-900">
+            {icon}
           </span>
 
-          <div className="space-y-6 pt-5 font-extrabold text-xl leading-7 text-white transition-all duration-300 group-hover:text-black">
-            <p>{title}</p>
-          </div>
+          <h3 className="space-y-6 pt-5 font-extrabold text-lg sm:text-xl text-white transition-all duration-300 group-hover:text-black">
+            {title}
+          </h3>
 
-          <div className="pt-5 text-base font-semibold leading-7">
-            <p>
-              <a
-               
-                className="text-white transition-all duration-300 group-hover:text-black"
-              >
-                {description}
-              </a>
-            </p>
-          </div>
+          <p className="pt-5 text-sm sm:text-base font-semibold leading-6 text-white transition-all duration-300 group-hover:text-black">
+            {description}
+          </p>
         </div>
       </div>
     </div>

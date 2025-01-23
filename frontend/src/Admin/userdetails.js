@@ -42,64 +42,71 @@ const Userdetails = () => {
 
   return (
     <div className="p-5">
-      <h1 className="mb-4 text-2xl font-serif text-center text-black md:text-4xl lg:text-5xl">
-        User Details
-      </h1>
-
-      <div className="overflow-x-auto">
-        <div className="inline-block min-w-full align-middle">
-          <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase tracking-wider"
-                  >
-                    Name
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase tracking-wider"
-                  >
-                    Email
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase tracking-wider"
-                  >
-                    Password
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-medium text-right text-gray-500 uppercase tracking-wider"
-                  >
-                    Action
-                  </th>
+    <h1 className="mb-4 text-2xl font-serif text-center text-black sm:text-3xl md:text-4xl lg:text-5xl">
+      User Details
+    </h1>
+  
+    <div className="overflow-x-auto">
+      <div className="inline-block min-w-full align-middle">
+        <div className="overflow-hidden border border-gray-200 shadow-md sm:rounded-lg">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th
+                  scope="col"
+                  className="px-4 py-3 text-xs font-medium text-left text-gray-500 uppercase tracking-wider sm:px-6"
+                >
+                  Name
+                </th>
+                <th
+                  scope="col"
+                  className="px-4 py-3 text-xs font-medium text-left text-gray-500 uppercase tracking-wider sm:px-6"
+                >
+                  Email
+                </th>
+                <th
+                  scope="col"
+                  className="px-4 py-3 text-xs font-medium text-left text-gray-500 uppercase tracking-wider sm:px-6"
+                >
+                  Password
+                </th>
+                <th
+                  scope="col"
+                  className="px-4 py-3 text-xs font-medium text-right text-gray-500 uppercase tracking-wider sm:px-6"
+                >
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {signupDetails.map((item, index) => (
+                <tr key={item.id || index}>
+                  <td className="px-4 py-4 text-sm font-medium text-gray-900 sm:px-6">
+                    {item.name}
+                  </td>
+                  <td className="px-4 py-4 text-sm text-gray-900 sm:px-6">
+                    {item.email}
+                  </td>
+                  <td className="px-4 py-4 text-sm text-gray-900 sm:px-6">
+                    {item.password}
+                  </td>
+                  <td className="px-4 py-4 text-sm text-right font-medium sm:px-6">
+                    <button
+                      className="rounded-md bg-red-600 py-2 px-4 text-white transition hover:bg-red-700"
+                      onClick={() => deleteProject(item._id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {signupDetails.map((item, index) => (
-                  <tr key={item.id || index}>
-                    <td className="px-6 py-4 text-sm font-medium text-gray-900">{item.name}</td>
-                    <td className="px-6 py-4 text-sm text-gray-900">{item.email}</td>
-                    <td className="px-6 py-4 text-sm text-gray-900">{item.password}</td>
-                    <td className="px-6 py-4 text-sm text-right font-medium">
-                      <button
-                        className="rounded-md bg-red-600 py-2 px-4 text-white transition hover:bg-red-700"
-                        onClick={() => deleteProject(item._id)}
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
+  </div>
+  
   );
 };
 

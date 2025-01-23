@@ -1,33 +1,13 @@
-import React from 'react';
+import React from "react";
 
 const Management = () => {
-  const sections = [
-    {
-      title: "Natural Language Processing (NLP):",
-      description:
-        "The AI product utilizes advanced NLP algorithms to understand and interpret human language, enabling it to accurately process and analyze text-based inputs.",
-      image:
-        "https://images.unsplash.com/photo-1569144157591-c60f3f82f137",
-      bgColor: "bg-slate-300",
-      reverse: false,
-    },
-    {
-      title: "Sentiment Analysis:",
-      description:
-        "The product has built-in sentiment analysis capabilities, allowing it to determine the sentiment (positive, negative, or neutral) expressed in text or customer feedback.",
-      image:
-        "https://images.unsplash.com/photo-1599134842279-fe807d23316e",
-      bgColor: "bg-slate-200",
-      reverse: true,
-    },
-  ];
-
   return (
     <div>
+      {/* Header Section */}
       <div className="relative w-full mx-auto">
         <img
           className="h-64 w-full object-cover rounded-md"
-          src="https://img.freepik.com/free-vector/building-construction-concept_1284-10515.jpg"
+          src="/titlcovere.jpg"
           alt="Random image"
         />
         <div className="absolute inset-0 bg-gray-700 opacity-60 rounded-md" />
@@ -36,62 +16,110 @@ const Management = () => {
         </div>
       </div>
 
-      <div className="relative overflow-hidden bg-white pt-16 pb-32 space-y-24">
-        {sections.map((section, index) => (
-          <div
-            key={index}
-            className={`relative ${section.bgColor}`}
-          >
-            <div className={`lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8 pt-32 pb-32`}>
-              {!section.reverse ? (
-                <>
-                  <div className="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0">
-                    <h2 className="text-3xl font-bold tracking-tight text-black">
-                      {section.title}
-                    </h2>
-                    <p className="mt-4 text-lg text-black">
-                      {section.description}
-                    </p>
-                  </div>
-                  <div className="mt-12 sm:mt-16 lg:mt-0">
-                    <div className="-mr-48 pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
-                      <img
-                        loading="lazy"
-                        className="w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                        src={section.image}
-                        alt="Section image"
-                      />
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0 lg:col-start-2">
-                    <h2 className="text-3xl font-bold tracking-tight text-black">
-                      {section.title}
-                    </h2>
-                    <p className="mt-4 text-lg text-black">
-                      {section.description}
-                    </p>
-                  </div>
-                  <div className="mt-12 sm:mt-16 lg:mt-0">
-                    <div className="-ml-48 pr-6 md:-ml-16 lg:relative lg:m-0 lg:h-full lg:px-0">
-                      <img
-                        loading="lazy"
-                        className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
-                        src={section.image}
-                        alt="Section image"
-                      />
-                    </div>
-                  </div>
-                </>
-              )}
+      <section className="py-14 lg:py-24 relative bg-slate-200">
+        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-6 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-9 items-center">
+            <div className="img-box relative">
+              {/* Image with Shadow on Bottom and Right */}
+              <img
+                src="/vanimam2.jpg"
+                alt="Vani Mami"
+                className="rounded-md w-full max-w-lg mx-auto object-cover shadow-[8px_8px_16px_0px_rgba(0,0,0,0.2)]"
+              />
+            </div>
+            <div className="lg:pl-[100px] flex items-center">
+              <div className="data w-full">
+                <h2 className="font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center">
+                  Miss Shivani Trivedi
+                </h2>
+                <p>Manager & director</p>
+                <p className="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
+                  Shivani Trivedi plays an integral role as the Manager of
+                  Lucknow Building Solution Pvt. Ltd., bringing a wealth of
+                  experience and expertise to the company. With a strong
+                  foundation in project management and team leadership, she has
+                  been instrumental in overseeing the successful execution of
+                  numerous projects while ensuring operational efficiency and
+                  client satisfaction.
+                </p>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
+
+      <section className="py-14 lg:py-24 relative">
+        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-6 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-9 items-center">
+            <div className="img-box relative">
+              {/* Image with Shadow on Bottom and Right */}
+              <img
+                src="/AliAfzal.jpg"
+                alt="Vani Mami"
+                className="rounded-md w-full max-w-lg mx-auto object-cover shadow-[8px_8px_16px_0px_rgba(0,0,0,0.2)]"
+              />
+            </div>
+            <div className="lg:pl-[100px] flex items-center">
+              <div className="data w-full">
+                <h2 className="font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center">
+                  Er. Ali Afzal Khan
+                </h2>
+                <p>coordinator</p>
+                <p className="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
+                  Er.Ali Afzal Khan plays a crucial role as the coordinator of
+                  Lucknow Building Solution Pvt. Ltd., leveraging his vast
+                  experience and profound expertise in the construction
+                  industry. With a deep understanding of project management,
+                  team coordination, and client relations, he has been a key
+                  player in overseeing the seamless execution of various
+                  high-profile projects. Under his leadership, Lucknow Building
+                  Solution Pvt. Ltd. has set benchmarks in project management
+                  and client satisfaction.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-14 lg:py-24 relative bg-slate-200">
+        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-6 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-9 items-center">
+            <div className="img-box relative">
+              {/* Image with Shadow on Bottom and Right */}
+              <img
+                src="/Ashank .jpg"
+                alt="Ashank Trivedi"
+                className="rounded-md w-full max-w-lg mx-auto object-cover shadow-[8px_8px_16px_0px_rgba(0,0,0,0.2)]"
+              />
+            </div>
+            <div className="lg:pl-[100px] flex items-center">
+              <div className="data w-full">
+                <h2 className="font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center">
+                  Mr. Ashank Trivedi
+                </h2>
+                <p>Sales manager</p>
+                <p className="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
+                  Mr. Ashank Trivedi serves as the Sales Manager at Lucknow
+                  Building Solution Pvt. Ltd., playing a pivotal role in driving
+                  the company's growth and success. With a strong background in
+                  sales strategy, client relationship management, and market
+                  analysis, he has been instrumental in expanding the company's
+                  client base and enhancing customer satisfaction. His expertise
+                  lies in understanding client needs, providing tailored
+                  solutions, and ensuring seamless communication between the
+                  company and its stakeholders. Under his guidance, Lucknow
+                  Building Solution Pvt. Ltd. has strengthened its market
+                  position, delivering outstanding construction services while
+                  building enduring partnerships with clients and collaborators.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
 
-export default Management
+export default Management;

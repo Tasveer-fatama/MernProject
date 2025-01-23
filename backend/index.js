@@ -7,7 +7,9 @@ import userRoutes from './route/userRoute.js'
 import completedprojectRoute from './route/completedprojectRoute.js'
 import utilroute from './route/utils.js'
 import inquiryroute from './route/Inquiryroute.js'
-
+import Servicesroute from './route/Servicesroute.js'
+import Industrialroute from './route/Industrialroute.js';
+import Residentialroute from './route/Residentialroute.js';
 
 dotenv.config({ path: './.env' }); 
 const app = express()
@@ -27,6 +29,9 @@ app.use('/api/v1/auth', userRoutes)
 app.use('/completedProjects', completedprojectRoute)
 app.use('/util', utilroute)
 app.use('/inquiry', inquiryroute)
+app.use('/services', Servicesroute)
+app.use('/industrial', Industrialroute)
+app.use('/residential', Residentialroute)
 app.use(express.static('./static/uploads'));
 
 //rest api
