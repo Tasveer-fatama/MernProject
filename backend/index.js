@@ -13,22 +13,11 @@ import Residentialroute from './route/Residentialroute.js';
 
 dotenv.config({ path: './.env' }); 
 const app = express()
-const allowedOrigins = [
-    'https://mern-project-7ghq9xku6-tasyver-fatamas-projects.vercel.app'
-   
-];
-
 const corsOptions = {
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD'],
-    credentials: true
-};
+  origin:'https://mern-project-rhiqntji6-tasveer-fatamas-projects.vercel.app',
+  methods:'GET,POST,PUT,DELETE,PATCH,HEAD',
+  credentials : true,
+}
 
 app.use(cors(corsOptions));
 app.use(express.json())
