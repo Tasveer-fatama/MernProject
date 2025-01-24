@@ -14,8 +14,8 @@ import Residentialroute from './route/Residentialroute.js';
 dotenv.config({ path: './.env' }); 
 const app = express()
 const allowedOrigins = [
-    'https://mern-project-7ghq9xku6-tasyver-fatamas-projects.vercel.app',
-    'http://localhost:3000'
+    'https://mern-project-7ghq9xku6-tasyver-fatamas-projects.vercel.app'
+   
 ];
 
 const corsOptions = {
