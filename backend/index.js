@@ -14,7 +14,7 @@ import Residentialroute from './route/Residentialroute.js';
 dotenv.config({ path: './.env' }); 
 const app = express()
 const corsOptions = {
-  origin:'https://mern-project-phi-henna.vercel.app',
+  origin:'https://mern-project-7qh0d9ku6-tasveer-fatamas-projects.vercel.app',
   methods:'GET,POST,PUT,DELETE,PATCH,HEAD',
   credentials : true,
 }
