@@ -12,12 +12,27 @@ import Industrialroute from './route/Industrialroute.js';
 import Residentialroute from './route/Residentialroute.js';
 
 dotenv.config({ path: './.env' }); 
+
+
 const app = express()
+
+const allowedOrigins = [
+  'https://mern-project-rhiqntji6-tasveer-fatamas-projects.vercel.app',
+  'https://mern-project-phi-henna.vercel.app'
+];
+
 const corsOptions = {
-  origin:'https://mern-project-rhiqntji6-tasveer-fatamas-projects.vercel.app',
-  methods:'GET,POST,PUT,DELETE,PATCH,HEAD',
-  credentials : true,
-}
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      // Allow requests with no origin (like mobile apps or Postman)
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,POST,PUT,DELETE,PATCH,HEAD',
+  credentials: true
+};
 
 app.use(cors(corsOptions));
 app.use(express.json())
